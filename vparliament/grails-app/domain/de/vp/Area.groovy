@@ -1,16 +1,12 @@
 package de.vp
 
-class Party {
-	
+class Area {
 	String name;
 	String description;
 	
-	static hasMany = [issues: Issue];
-
     static constraints = {
 		name(blank: false);
 		description(nullable:true);
-		issues(nullable:true);
     }
 	
 	@Override
