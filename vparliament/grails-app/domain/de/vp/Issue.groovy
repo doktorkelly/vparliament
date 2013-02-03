@@ -4,11 +4,11 @@ class Issue {
 
 	String name;
 	String description;
-	StatusEnum status;
+	IssueStatusEnum status;
 	Area area;
 	
 	static belongsTo = Party;
-	static hasMany = [parties: Party, comments: Comment];
+	static hasMany = [parties: Party, comments: Comment, votes: IssueVote];
 	
     static constraints = {
 		name(blank:false);

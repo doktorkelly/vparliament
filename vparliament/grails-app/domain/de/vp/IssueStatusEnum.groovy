@@ -1,12 +1,12 @@
 package de.vp
 
-enum StatusEnum {
+enum IssueStatusEnum {
 	INWORK("in work"),
 	FINISHED("finished")
 	
 	private final String value;
 	
-	private StatusEnum(String value) {
+	private IssueStatusEnum(String value) {
 		this.value = value;
 	}
 	

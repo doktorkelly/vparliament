@@ -4,10 +4,13 @@ class Area {
 	String name;
 	String description;
 	
-    static constraints = {
+	static hasMany = [parties: Party]
+
+	static constraints = {
 		name(blank: false);
 		description(nullable:true);
     }
+	
 	
 	@Override
 	public String toString() {
