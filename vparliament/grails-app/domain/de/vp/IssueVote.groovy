@@ -15,6 +15,11 @@ class IssueVote {
 		dateCreated(nullable:true);
     }
 	
+//  TODO:
+//	static mapping = {
+//		id composite: ['actor', 'issue']
+//	}
+	
 	@Override
 	public String toString() {
 		return "${actor.name} ${issue.name}";
