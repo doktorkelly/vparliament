@@ -7,7 +7,7 @@
 		<g:set var="entityName" value="${message(code: 'actor.label', default: 'Actor')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
-	<body controller="actor" action="list">
+	<body>
 		<a href="#list-actor" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
