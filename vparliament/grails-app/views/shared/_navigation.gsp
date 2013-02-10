@@ -1,15 +1,14 @@
 <div class="nav" role="navigation">
 	<ul>
-		<li><a      class="home" href="${createLink(uri: '/')}">home</a></li>
-		
+		<li><a class="home" href="${createLink(uri: '/')}">home</a></li>
 		<g:each 
 			in="['login', 'logout', 'actor', 'party', 'area', 'issue', 'issueVote', 'comment']" 
 			var="ctrlName">
 			<g:if test="${controllerName == ctrlName}">
-				<li><g:link class="active" controller="${ctrlName}">${ctrlName}</g:link></li>
+				<li><g:link class="active" controller="${ctrlName}">${ctrlName.capitalize()}</g:link></li>
 			</g:if>
 			<g:else>
-				<li><g:link class="" controller="${ctrlName}">${ctrlName}</g:link></li>
+				<li><g:link class="" controller="${ctrlName}">${ctrlName.capitalize()}</g:link></li>
 			</g:else>
 		</g:each>
 
