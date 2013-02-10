@@ -157,6 +157,11 @@ img {
 	padding: 0;
 }
 
+/* pascal 2013-02-10 */
+.nav a.active {
+	background-color: #aabbcc; 
+}
+
 .nav a {
 	color: #666666;
 	display: block;
