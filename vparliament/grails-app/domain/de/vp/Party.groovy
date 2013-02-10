@@ -5,7 +5,7 @@ class Party {
 	String name;
 	String description;
 	
-	static hasMany = [areas: Area, issues: Issue];
+	static hasMany = [issues: Issue];
 
     static constraints = {
 		name(blank: false);
