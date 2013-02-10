@@ -5,6 +5,7 @@ class Area {
 	String description;
 	
 	static hasMany = [parties: Party]
+	static belongsTo = Party;
 
 	static constraints = {
 		name(blank: false);

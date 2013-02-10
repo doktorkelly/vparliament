@@ -1,6 +1,6 @@
 <div class="nav" role="navigation">
 	<ul>
-		<li><a class="home" href="${createLink(uri: '/')}">home</a></li>
+		<li><a class="home" href="${createLink(uri: '/')}">Home</a></li>
 		<g:each 
 			in="['login', 'logout', 'actor', 'party', 'area', 'issue', 'issueVote', 'comment']" 
 			var="ctrlName">
