@@ -27,7 +27,7 @@ class Issue {
 		return "${name}";
 	}
 	
-	public static List<Issue> findByPartyAndAreaId1(Long partyId, Long areaId, Map<Object,Object> params) {
+	public static List<Issue> findByContext1(Long partyId, Long areaId, Map<Object,Object> params) {
 		List<Issue> issueList = new ArrayList<Issue>();
 		if (areaId && partyId) {
 			issueList = Issue.where {

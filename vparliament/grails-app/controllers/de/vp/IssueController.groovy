@@ -6,27 +6,38 @@ class IssueController {
 
     static scaffold = Issue;
 	
-	def list(Integer max, Long areaId, Long partyId) {
+	def list(Integer max, Long partyId, Long areaId) {
 		params.max = Math.min(max ?: 10, 100)
 		PagedResultList issueList = Issue.findByContext(partyId, areaId, params);
 		Integer issueTotal = issueList.getTotalCount();
-		
-//		List<Issue> issueList = null;
-//		Integer issueTotal = 0;
-//		if(partyId || areaId) {
-//			issueList = Issue.findByPartyAndAreaId(partyId, areaId, params);
-//			issueTotal = issueList.totalCount;
-//		}
-//		else {
-//			issueList = Issue.list(params);
-//			issueTotal = Issue.count();
-//		}
+		IssueContext issueContext = IssueContext.fromParams(params);
 		log.info(""
 			+ "\nissueList: " + issueList
-			+ "\nissueTotal: " + issueTotal);
+			+ "\nissueTotal: " + issueTotal
+			+ "\nissueContext: " + issueContext);
 		[
 			issueInstanceList: issueList, 
-			issueInstanceTotal: issueTotal]
+			issueInstanceTotal: issueTotal,
+			issueContext: issueContext 
+		]
 	}
+	
+}
+
+class IssueContext {
+	Long partyId;
+	Long areaId;
+	
+	static IssueContext fromParams(Map<Object,Object> params) {
+		IssueContext context = new IssueContext();
+		context.partyId = params?.partyId?.toLong();
+		context.areaId = params?.areaId?.toLong();
+		return context;
+	}
+	
+	List<Long> toList() {
+		return [ partyId, areaId ];
+	}
+	
 	
 }
