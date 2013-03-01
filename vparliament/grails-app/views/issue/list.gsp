@@ -9,22 +9,7 @@
 	</head>
 	<body>
 		<a href="#list-issue" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="contextItem" href="${createLink(uri: '/')}">parliament</a></li>
-				<g:if test="${issueContext.partyId}">
-					<li><g:link class="contextItem" controller="party" action="show" params="[id: issueContext.partyId]">
-						&gt; party ${issueContext.partyId}
-					</g:link></li>
-				</g:if>
-				<g:if test="${issueContext.areaId}">
-					<li><g:link class="contextItem" params="${params}">
-						&gt; area ${issueContext.areaId}
-					</g:link></li>
-				</g:if>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
+		<g:render template="navipath" model=""/>
 		<div id="list-issue" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -64,5 +49,11 @@
 				<g:paginate total="${issueInstanceTotal}" />
 			</div>
 		</div>
+		<div class="nav" role="navigation">
+			<ul>
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+			</ul>
+	</div>
+		
 	</body>
 </html>
