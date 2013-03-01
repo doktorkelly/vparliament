@@ -1,6 +1,8 @@
 package de.vp
 
-class NavigationPath {
+import java.util.Iterator;
+
+class NavigationPath implements Iterable<NavigationItem> {
 	private ArrayList<NavigationItem> naviList; //check: Vector?
 	
 	public NavigationPath() {
@@ -24,8 +26,30 @@ class NavigationPath {
 	public gotoItem(NavigationItem item) {
 		//TODO:
 		int index = naviList.indexOf(item);
-		if (index > -1) {
+		if (index > -1 && index < naviList.size()) {
 			naviList.removeRange(index+1, naviList.size());
 		}
 	}
+	
+	public int size() {
+		return naviList.size();
+	}
+
+	@Override
+	public Iterator<NavigationItem> iterator() {
+		return naviList.iterator();
+	}
+	
+	@Override
+	public String toString() {
+		String result = naviList.
+			collect { x -> x.name; }.
+			join("\n");
+		return "\n" + result;
+	};
 }
+
+
+
+
+

@@ -16,9 +16,8 @@ class NavigationItem {
 		if (!(other instanceof NavigationItem)) {
 			return false;
 		}
-		return 
-			this.name == other.name &&
-			this.url == other.url;
+		return this.name == ((NavigationItem)other).name &&
+			this.url == ((NavigationItem)other).url;
 	}
 	
 	@Override

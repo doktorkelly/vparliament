@@ -76,8 +76,12 @@ log4j = {
     //appenders {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
+//	root {
+//		info  'stdout', 'file'
+//	}
 	info	'grails.app.controllers',
-			'grails.app.domain'
+			'grails.app.domain',
+			'de.vp'
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
