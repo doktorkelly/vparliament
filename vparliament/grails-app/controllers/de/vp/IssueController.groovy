@@ -10,34 +10,24 @@ class IssueController {
 		params.max = Math.min(max ?: 10, 100)
 		PagedResultList issueList = Issue.findByContext(partyId, areaId, params);
 		Integer issueTotal = issueList.getTotalCount();
-		IssueContext issueContext = IssueContext.fromParams(params);
+		
+		NavigationPath naviPath = session.naviPath ?: new NavigationPath();
+		String name = "area" + 5;
+//		String url = request.forwardURI;
+		String url = request.getRequestURI();
+		NavigationItem naviItem = new NavigationItem(name, url);
+		naviPath.addItem(naviItem);
+		session.naviPath = naviPath; //check: obsolete?
+		
 		log.info(""
 			+ "\nissueList: " + issueList
 			+ "\nissueTotal: " + issueTotal
-			+ "\nissueContext: " + issueContext);
+			+ "\nnaviPath: " + naviPath);
 		[
 			issueInstanceList: issueList, 
 			issueInstanceTotal: issueTotal,
-			issueContext: issueContext 
+			naviPath: naviPath 
 		]
 	}
-	
-}
-
-class IssueContext {
-	Long partyId;
-	Long areaId;
-	
-	static IssueContext fromParams(Map<Object,Object> params) {
-		IssueContext context = new IssueContext();
-		context.partyId = params?.partyId?.toLong();
-		context.areaId = params?.areaId?.toLong();
-		return context;
-	}
-	
-	List<Long> toList() {
-		return [ partyId, areaId ];
-	}
-	
 	
 }

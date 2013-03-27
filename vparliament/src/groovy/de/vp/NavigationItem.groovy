@@ -27,4 +27,9 @@ class NavigationItem {
 			append(url).
 			toHashCode();
 	}
+	
+	@Override
+	String toString() {
+		return name + " " + url;
+	}
 }

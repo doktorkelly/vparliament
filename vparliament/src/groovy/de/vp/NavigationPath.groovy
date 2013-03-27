@@ -14,7 +14,9 @@ class NavigationPath implements Iterable<NavigationItem> {
 	}
 	
 	public addItem(NavigationItem item) {
-		naviList.add(item);
+		if (!naviList.contains(item)) {
+			naviList.add(item);
+		}
 	}
 	
 	/**
@@ -43,7 +45,7 @@ class NavigationPath implements Iterable<NavigationItem> {
 	@Override
 	public String toString() {
 		String result = naviList.
-			collect { x -> x.name; }.
+			collect { x -> x.toString(); }.
 			join("\n");
 		return "\n" + result;
 	};
